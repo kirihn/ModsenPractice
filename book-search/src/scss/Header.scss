@@ -1,0 +1,52 @@
+.header{
+    background-image: url("../../public/img/HeaderBackground.png");
+    height: 500px;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .content{
+
+        width: 600px;
+        background: rgba(79, 0, 182, 0.3);
+        display: flex;
+        flex-direction: column;
+        //justify-content: center;
+        .headerH1{
+            margin: auto;
+            width:fit-content;
+            color: white;
+            padding: 20px;
+        }
+        .filter{
+            margin: auto;
+            width:fit-content;
+            .searchBarContainer{
+
+                margin: auto;
+            }
+            .selectsContainer{
+                display: flex;
+                justify-content: space-around;
+                flex-wrap: wrap;
+                width: 320px;
+                .selectItem{
+                    display: flex;
+                    justify-content: space-around;
+                    p{
+
+                        
+                    }
+                    select{
+
+                    }
+                }
+            }
+        }
+    }
+    
+}
