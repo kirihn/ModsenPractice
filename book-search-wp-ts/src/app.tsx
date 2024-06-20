@@ -1,17 +1,18 @@
-import React from 'react';
-import Header from './components/header';
+import React from 'react'
+import Header from './components/header'
+import BookCard from './components/book-Card'
 import './styles/main.scss'
-export default function App(){
-  return (
-    <>
-      <Header></Header>
-      <main>
-
-      </main>
-      <footer>
-
-      </footer>
-    </>
-  );
-};
-
+import BookList from './components/books-list'
+import BookPage from './components/book-page'
+export default function App() {
+    return (
+        <>
+            <Header></Header>
+            <main>
+              {/* <BookList></BookList> */}
+              <BookPage></BookPage>
+            </main>
+            <footer></footer>
+        </>
+    )
+}

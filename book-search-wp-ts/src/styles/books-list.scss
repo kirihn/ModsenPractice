@@ -1,0 +1,13 @@
+.booksCount{
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+.booklistContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: 1400px;
+    margin: auto;
+    gap: 50px;
+}

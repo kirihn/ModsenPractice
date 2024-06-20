@@ -1,0 +1,21 @@
+.bookPageContainer{
+
+    display: flex;
+    .bookFace{
+        width: 45%;
+        padding-top: 50px;
+        padding-bottom: 50px;
+        background: rgb(231, 231, 231);
+        display: flex;
+        justify-content: center;
+        img{
+            width: 70%;
+            box-shadow: 10px 10px 10px  rgba(0, 0, 0, 0.25);
+        }
+    }
+    .bookinfo{
+        
+        width: 55%;
+        padding:  50px 20px 50px 20px;
+    }
+}

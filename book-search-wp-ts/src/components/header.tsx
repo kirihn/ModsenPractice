@@ -1,26 +1,18 @@
-import "../styles/header.scss"
-import React from 'react';
-export default function Header(){
-
-
-
+import '../styles/header.scss'
+import React from 'react'
+export default function Header() {
     return (
         <header className="header">
-
             <div className="content">
-                
-                <h1 className="headerH1">
-                    Search for books
-                </h1>
+                <h1 className="headerH1">Search for books</h1>
 
                 <div className="filter">
-
                     <div className="searchBarContainer">
-                        <input 
-                            className="searchBar" 
-                            type="text" 
-                            placeholder="BookName..." 
-                            //value={""} 
+                        <input
+                            className="searchBar"
+                            type="text"
+                            placeholder="BookName..."
+                            //value={""}
                         ></input>
                         <button>
                             <img src="./img/Search.png" alt="Search" />
@@ -29,7 +21,7 @@ export default function Header(){
 
                     <div className="selectsContainer">
                         <div className="selectItem">
-                            <p >Categories</p>
+                            <p>Categories</p>
                             <select>
                                 <option value="option1">all</option>
                                 <option value="option2">Option 2</option>
@@ -45,9 +37,7 @@ export default function Header(){
                             </select>
                         </div>
                     </div>
-
-                </div>   
-
+                </div>
             </div>
         </header>
     )

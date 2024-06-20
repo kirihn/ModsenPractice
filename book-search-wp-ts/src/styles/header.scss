@@ -1,6 +1,5 @@
 .header{
     background-image: url("../../public/img/HeaderBackground.png");
-    height: 300px;
     width: 100%;
     background-size: cover;
     background-position: center;
@@ -11,6 +10,8 @@
 
     .content{
         max-width: 1800px;
+        padding-top: 40px;
+        padding-bottom: 40px;
         flex-grow: 1;
         display: flex;
         flex-direction: column;
@@ -28,13 +29,12 @@
             width: 100%;
             .searchBarContainer{
                 padding: 0 20px 0 20px;
-                margin: auto;
                 margin-bottom: 20px;
                 display: flex;
                 justify-content: center;
                 
                 input{
-                    height: 50px;
+                    height: 40px;
                     width: 100%;
                     min-width: 150px;
                     max-width: 700px;
@@ -44,17 +44,19 @@
                     flex-grow: 1;
                 }
                 button{
-                    height: 50px;
-                    width: 50px;
+                    height: 40px;
+                    width: 40px;
                     background: white;
+                    vertical-align:middle;
                     img{
-                        width: 70%;
-                        height: 60%;
-                        margin-right: 5px;
+
+                        width: 40px;
+                        height: 40px;
+                        padding: 7px;
+                        box-sizing: border-box;
                     }
                     img:hover{
-                        width: 80%;
-                        height: 70%;
+                        padding: 6px;
                     }
                 }
             }
@@ -67,20 +69,22 @@
                     display: flex;
                     justify-content: center;
                     flex-wrap: wrap;
-                    margin: 0 20px 40px 20px;
+                    margin: 0 20px 20px 20px;
                     align-items: center;
                     p{
                         font-size: 25px;
                         color: white;
                         margin-right: 10px;
+                        width: 130px;
                     }
                     select{
                         box-sizing: content-box;
-                        height: 40px;
+                        height: 30px;
                         width: 240px;
                         min-height: 30px;
                         padding: 5px 10px 5px 10px;
-                        font-size: 25px;
+                        font-size: 20px;
+                        color: rgb(66, 66, 66);
                     }
                 }
             }
