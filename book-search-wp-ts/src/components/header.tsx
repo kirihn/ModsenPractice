@@ -1,5 +1,5 @@
-import "../css/Header.css"
-
+import "../styles/header.scss"
+import React from 'react';
 export default function Header(){
 
 
@@ -23,21 +23,25 @@ export default function Header(){
                             //value={""} 
                         ></input>
                         <button>
-                            Лупа
+                            <img src="./img/Search.png" alt="Search" />
                         </button>
                     </div>
 
                     <div className="selectsContainer">
                         <div className="selectItem">
-                            <p>Categories</p>
+                            <p >Categories</p>
                             <select>
-
+                                <option value="option1">all</option>
+                                <option value="option2">Option 2</option>
+                                <option value="option3">Option 3</option>
                             </select>
                         </div>
                         <div className="selectItem">
                             <p>Sorting by</p>
                             <select>
-                                
+                                <option value="option1">relevance</option>
+                                <option value="option2">Option 2</option>
+                                <option value="option3">Option 3</option>
                             </select>
                         </div>
                     </div>
