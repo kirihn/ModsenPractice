@@ -1,16 +1,13 @@
-import React from "react";
+import React from 'react'
 import '../styles/book-page.scss'
-export default function BookPage(){
-
+export default function BookPage() {
     return (
         <div className="bookPageContainer">
             <div className="bookFace">
                 <img src="./img/BookImg.png" alt="Book" />
             </div>
             <div className="bookinfo">
-                <p className="bookMap">
-                    Art / General
-                </p>
+                <p className="bookMap">Art / General</p>
                 <h2 className="bookName">
                     Node.js разработка серверных веб-приложений на JavaScript
                 </h2>

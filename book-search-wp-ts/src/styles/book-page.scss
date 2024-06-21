@@ -1,21 +1,88 @@
-.bookPageContainer{
-
+.bookPageContainer {
     display: flex;
-    .bookFace{
+    
+    .bookFace {
         width: 45%;
-        padding-top: 50px;
-        padding-bottom: 50px;
+        padding: 50px 0;
         background: rgb(231, 231, 231);
         display: flex;
         justify-content: center;
-        img{
-            width: 70%;
-            box-shadow: 10px 10px 10px  rgba(0, 0, 0, 0.25);
+
+        img {
+            width: 60%;
+            box-shadow: 20px 20px 10px rgba(0, 0, 0, 0.25);
         }
     }
-    .bookinfo{
-        
+
+    .bookinfo {
         width: 55%;
-        padding:  50px 20px 50px 20px;
+        padding: 50px 20px;
+
+        .bookMap{
+            margin-bottom: 40px;
+            font-size: 18px;
+        }
+        .bookName{
+            margin-bottom: 10px;
+        }
+        .authorName{
+            text-decoration: underline;
+            color: rgb(66, 66, 66);
+            font-size: 18px;
+            font-weight: normal;
+            margin-bottom: 10px;
+        }
+        .descriptionContainer{
+            border: 1px solid rgb(198, 198, 198);
+            box-sizing: border-box;
+            padding: 20px;
+            min-height: 200px;
+            .description{
+
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 1800px) {
+    .bookPageContainer {
+        .bookFace {
+            img {
+                width: 50%;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .bookPageContainer {
+        display: block;
+        box-sizing: border-box;
+        .bookFace {
+            width: auto;
+            img {
+                width: 60%;
+            }
+        }
+
+        .bookinfo {
+            width: auto;
+            .bookMap{
+                margin-bottom: 40px;
+                font-size: 16px;
+            }
+            .bookName{
+                font-size: 20px;
+            }
+            .authorName{
+                font-size: 16px;
+            }
+            .descriptionContainer{
+
+                .description{
+                    font-size: 16px;
+                }
+            }
+        }
     }
 }

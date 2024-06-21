@@ -9,8 +9,8 @@ export default function App() {
         <>
             <Header></Header>
             <main>
-              {/* <BookList></BookList> */}
-              <BookPage></BookPage>
+                <BookList></BookList>
+                <BookPage></BookPage>
             </main>
             <footer></footer>
         </>
