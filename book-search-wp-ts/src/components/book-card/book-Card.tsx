@@ -1,5 +1,5 @@
 import React from 'react'
-import '../styles/book-card.scss'
+import './book-card.scss'
 export default function BookCard() {
     return (
         <div className="bookCardContainer">

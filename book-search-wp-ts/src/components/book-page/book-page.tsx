@@ -1,5 +1,5 @@
 import React from 'react'
-import '../styles/book-page.scss'
+import './book-page.scss'
 export default function BookPage() {
     return (
         <div className="bookPageContainer">

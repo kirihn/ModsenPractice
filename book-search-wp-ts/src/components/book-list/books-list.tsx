@@ -1,6 +1,6 @@
 import React from 'react'
-import BookCard from './book-Card'
-import '../styles/books-list.scss'
+import BookCard from '../book-card/book-Card'
+import './books-list.scss'
 export default function BookList() {
     
     return (
