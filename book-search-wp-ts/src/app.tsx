@@ -10,7 +10,7 @@ export default function App() {
         <>
             <Header></Header>
             <main>
-                <Counter></Counter>
+                {/* <Counter></Counter> */}
                 <BookList></BookList>
                 <BookPage></BookPage>
             </main>
