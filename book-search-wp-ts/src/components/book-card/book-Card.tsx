@@ -1,8 +1,12 @@
 import React from 'react'
+import { useSelector, useDispatch } from 'react-redux'
 import './book-card.scss'
+import { SetPage } from '../../store/pageSlice'
+
 export default function BookCard() {
+    const dispatch = useDispatch()
     return (
-        <div className="bookCardContainer">
+        <div className="bookCardContainer" onClick={() => dispatch(SetPage('book-page'))}>
             <div className="imgContainer">
                 <img src="./img/BookImg.png" alt="Book" />
             </div>
