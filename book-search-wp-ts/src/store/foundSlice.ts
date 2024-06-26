@@ -1,33 +1,30 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-
-interface FoundState {
-    Search: string,
-    Categories: string,
-    SortingBy: string
-}
+import FoundState from '../dto/searchInfo.dto';
 
 const initialState: FoundState = {
     Search: '',
     Categories: 'all',
-    SortingBy: 'relevance'
+    Filter: 'relevance',
+    StartIndex: 0
 };
 
 const FoundSlice = createSlice({
   name: 'example',
   initialState,
   reducers: {
-    SetSearch: (state, action: PayloadAction<string>) => {
-      state.Search = action.payload ;
+    SetSearchInfo: (state, action: PayloadAction<FoundState>) => {
+      state.Search = action.payload.Search;
+      state.Categories = action.payload.Categories;
+      state.Filter = action.payload.Filter;
+      state.StartIndex = action.payload.StartIndex;
+
     },
-    SetCategories: (state, action: PayloadAction<string>) => {
-        state.Categories = action.payload ;
-      },
-    SetSortingBy: (state, action: PayloadAction<string>) => {
-        state.SortingBy = action.payload ;
-      },
+    SetNewIndex: (state, action: PayloadAction<number>) => {
+      state.StartIndex = action.payload; // state.StartIndex += 30 если урезать функционал пользователя
+    },
   },
 });
 
-export const { SetSearch, SetCategories, SetSortingBy } = FoundSlice.actions;
+export const { SetSearchInfo, SetNewIndex } = FoundSlice.actions;
 
 export default FoundSlice.reducer;
