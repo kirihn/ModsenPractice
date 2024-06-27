@@ -67,8 +67,8 @@ export default function Header(props: Props) {
                                 <option value="biography">biography</option>
                                 <option value="computers">computers</option>
                                 <option value="history">history</option>
-                                <option value="history">medical</option>
-                                <option value="history">poetry</option>
+                                <option value="medical">medical</option>
+                                <option value="poetry">poetry</option>
                             </select>
                         </div>
                         <div className="selectItem">
