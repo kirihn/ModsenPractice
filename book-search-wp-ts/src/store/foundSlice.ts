@@ -2,7 +2,7 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import FoundState from '../dto/searchInfo.dto';
 
 const initialState: FoundState = {
-    Search: '',
+    Search: 'node.js',
     Categories: 'all',
     Filter: 'relevance',
     StartIndex: 0
