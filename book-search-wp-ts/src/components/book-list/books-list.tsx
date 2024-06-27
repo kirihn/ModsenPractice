@@ -16,18 +16,8 @@ export default function BookList(props: Props) {
             )}
             <div className="booklistContainer">
                 {
-                    props.books?.items?.map(() => <BookCard></BookCard>)
+                    props.books?.items?.map((item, id) => <BookCard key={id} book={item}></BookCard>)
                 }
-                {/* <BookCard></BookCard>
-                <BookCard></BookCard>
-                <BookCard></BookCard>
-                <BookCard></BookCard>
-                <BookCard></BookCard>
-                <BookCard></BookCard>
-                <BookCard></BookCard>
-                <BookCard></BookCard>
-                <BookCard></BookCard>
-                <BookCard></BookCard> */}
             </div>
         </>
     )
