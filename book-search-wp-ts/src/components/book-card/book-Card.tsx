@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux'
 import './book-card.scss'
 import { SetPage } from '../../store/slices/pageSlice'
 import { BookCardProps } from './book-card-props.types'
+import { setCurrentBook } from '../../store/slices/currentBookSlice'
 
 export function BookCard(props: BookCardProps) {
 
@@ -11,6 +12,7 @@ export function BookCard(props: BookCardProps) {
     const dispatch = useDispatch()
 
     function ShowBookPage() {
+        dispatch(setCurrentBook(props.book))
         dispatch(SetPage('book-page'))
     }
 

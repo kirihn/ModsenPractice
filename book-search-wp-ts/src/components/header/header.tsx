@@ -4,6 +4,7 @@ import { GetResponseFromBookApi } from '../../utils/urlGenerator'
 import { SetSearchInfo } from '../../store/slices/foundSlice'
 import { GoogleBooksResponse } from '../../types/books.type'
 import './header.scss'
+import { SetPage } from '../../store/slices/pageSlice'
 
 interface Props {
     setBooks: (books: GoogleBooksResponse) => void
@@ -17,6 +18,10 @@ export function Header(props: Props) {
     const filterRef = useRef<HTMLSelectElement>(null)
 
     const handleSearch = async () => {
+
+        dispatch(SetPage('loading-page'))
+
+
         const searchParams = {
             Search: searchRef.current?.value || '%20',
             Categories: categoryRef.current?.value || 'all',
@@ -28,6 +33,9 @@ export function Header(props: Props) {
 
         const response = await GetResponseFromBookApi(searchParams)
         props.setBooks(response.data)
+
+        dispatch(SetPage('book-list'))
+
     }
 
     const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
