@@ -2,15 +2,11 @@ import React, { useRef } from 'react'
 import { useDispatch } from 'react-redux'
 import { GetResponseFromBookApi } from '../../utils/urlGenerator'
 import { SetSearchInfo } from '../../store/slices/foundSlice'
-import { GoogleBooksResponse } from '../../types/books.type'
-import './header.scss'
 import { SetPage } from '../../store/slices/pageSlice'
+import { HeaderProps } from './header-props.types'
+import './header.scss'
 
-interface Props {
-    setBooks: (books: GoogleBooksResponse) => void
-}
-
-export function Header(props: Props) {
+export function Header(props: HeaderProps) {
     const dispatch = useDispatch()
 
     const searchRef = useRef<HTMLInputElement>(null)

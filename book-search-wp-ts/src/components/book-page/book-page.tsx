@@ -36,14 +36,14 @@ export function BookPage() {
                     <p className="bookMap" onClick={ShowBookListPage}>
                         {'>'} to book-list
                     </p>
-                    <p className="bookMap">{categories}</p>
+                    <p className="bookMap">{categories ? categories : "No categories"}</p>
                     <h2 className="bookName">
-                        {title}
+                        {title ? title : "No title"}
                     </h2>
-                    <h3 className="authorName">{authors}</h3>
+                    <h3 className="authorName">{authors ? authors : "No authors"}</h3>
                     <div className="descriptionContainer">
                         <p className="description">
-                        {description}
+                        {description ? description : "No description"}
                         </p>
                     </div>
                 </div>

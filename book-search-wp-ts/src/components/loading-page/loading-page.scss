@@ -1,0 +1,15 @@
+.mainForLoading{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    .lodingImgContainer{
+        background-image: url("../../../public/img/loading.gif");
+        background-size: cover;
+        background-position: center;
+        margin: 30px;
+        width: 200px;
+        height: 180px;
+    }
+}
