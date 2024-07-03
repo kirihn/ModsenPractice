@@ -3,7 +3,6 @@
     width: 100%;
     background-size: cover;
     background-position: center;
-
     display: flex;
     justify-content: center;
     align-items: center;
@@ -27,6 +26,7 @@
         .filter{
             margin: auto;
             width: 100%;
+
             .searchBarContainer{
                 padding: 0 20px 0 20px;
                 margin-bottom: 20px;
@@ -43,11 +43,13 @@
                     font-size: 20px;
                     flex-grow: 1;
                 }
+
                 button{
                     height: 40px;
                     width: 40px;
                     background: white;
                     vertical-align:middle;
+
                     img{
 
                         width: 40px;
@@ -55,11 +57,13 @@
                         padding: 7px;
                         box-sizing: border-box;
                     }
+
                     img:hover{
                         padding: 6px;
                     }
                 }
             }
+
             .selectsContainer{
                 display: flex;
                 justify-content: center;
@@ -71,12 +75,14 @@
                     flex-wrap: wrap;
                     margin: 0 20px 20px 20px;
                     align-items: center;
+
                     p{
                         font-size: 25px;
                         color: white;
                         margin-right: 10px;
                         width: 130px;
                     }
+                    
                     select{
                         box-sizing: content-box;
                         height: 30px;

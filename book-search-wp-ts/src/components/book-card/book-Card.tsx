@@ -1,51 +1,39 @@
 import React from 'react'
-import { useSelector, useDispatch } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import './book-card.scss'
-import { SetPage } from '../../store/pageSlice'
-import { Volume } from '../../dto/books.dto'
-interface Props {
-    book: Volume
-}
+import { SetPage } from '../../store/slices/pageSlice'
+import { BookCardProps } from './book-card-props.types'
 
-export default function BookCard(props: Props) {
+export function BookCard(props: BookCardProps) {
+
+    const { volumeInfo } = props.book;
+    const { imageLinks, categories, title, authors } = volumeInfo;
     const dispatch = useDispatch()
+
+    function ShowBookPage() {
+        dispatch(SetPage('book-page'))
+    }
+
     return (
         <div
             className="bookCardContainer"
-            onClick={() => dispatch(SetPage('book-page'))}
         >
             <div className="imgContainer">
-                {props.book.volumeInfo.imageLinks?.thumbnail ? (
-                    <img
-                        src={props.book.volumeInfo.imageLinks.thumbnail}
-                        alt="Book"
-                    />
-                ) : (
-                    <img src="./img/EmptyAvatar.jpg" alt="Placeholder" />
-                )}
+                <img 
+                    onClick={ShowBookPage} 
+                    src={imageLinks?.thumbnail ? imageLinks.thumbnail : (imageLinks?.smallThumbnail ? imageLinks.smallThumbnail : "./img/EmptyAvatar.jpg")} 
+                    alt="BookAvatar" 
+                />
             </div>
             <div className="infoContainer">
-                {props.book.volumeInfo.categories ? (
-                    <p className="category">
-                        {props.book.volumeInfo.categories}
-                    </p>
-                ) : (
-                    <p className="category">No category</p>
-                )}
+                <p className="category">
+                    {categories ? categories : "No category"}
+                </p>
+                <h2 className="bookName" onClick={ShowBookPage}>{title ? title : "No title"}</h2>
+                <h3 className="authorName">
+                    {authors ? authors : "No authors"}
+                </h3>
 
-                {props.book.volumeInfo.title ? (
-                    <h2 className="bookName">{props.book.volumeInfo.title}</h2>
-                ) : (
-                    <h2 className="bookName">No title</h2>
-                )}
-
-                {props.book.volumeInfo.authors ? (
-                    <h3 className="authorName">
-                        {props.book.volumeInfo.authors}
-                    </h3>
-                ) : (
-                    <h3 className="authorName">No authors</h3>
-                )}
             </div>
         </div>
     )

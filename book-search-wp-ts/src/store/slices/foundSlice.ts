@@ -1,15 +1,15 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import FoundState from '../dto/searchInfo.dto';
+import FoundState from '../../types/searchInfo.dto';
 
 const initialState: FoundState = {
-    Search: 'node.js',
+    Search: ' ',
     Categories: 'all',
     Filter: 'relevance',
     StartIndex: 0
 };
 
 const FoundSlice = createSlice({
-  name: 'example',
+  name: 'FoundSlice',
   initialState,
   reducers: {
     SetSearchInfo: (state, action: PayloadAction<FoundState>) => {
@@ -20,7 +20,7 @@ const FoundSlice = createSlice({
 
     },
     SetNewIndex: (state, action: PayloadAction<number>) => {
-      state.StartIndex = action.payload; // state.StartIndex += 30 если урезать функционал пользователя
+      state.StartIndex = action.payload; // state.StartIndex += 30 если урезать функционал пользователя, ТУТ ЕЩЕ НУЖНО РАЗОБРАТЬСЯ
     },
   },
 });

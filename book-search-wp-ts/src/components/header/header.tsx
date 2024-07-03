@@ -1,16 +1,15 @@
-import './header.scss'
 import React, { useRef } from 'react'
-import { GetResponseFromBookApi } from '../../utils/urlGenerator'
 import { useDispatch } from 'react-redux'
-import FoundState from '../../dto/searchInfo.dto'
-import { SetSearchInfo } from '../../store/foundSlice'
-import { GoogleBooksResponse } from '../../dto/books.dto'
+import { GetResponseFromBookApi } from '../../utils/urlGenerator'
+import { SetSearchInfo } from '../../store/slices/foundSlice'
+import { GoogleBooksResponse } from '../../types/books.type'
+import './header.scss'
 
 interface Props {
     setBooks: (books: GoogleBooksResponse) => void
 }
 
-export default function Header(props: Props) {
+export function Header(props: Props) {
     const dispatch = useDispatch()
 
     const searchRef = useRef<HTMLInputElement>(null)
@@ -19,7 +18,7 @@ export default function Header(props: Props) {
 
     const handleSearch = async () => {
         const searchParams = {
-            Search: searchRef.current?.value || '',
+            Search: searchRef.current?.value || '%20',
             Categories: categoryRef.current?.value || 'all',
             Filter: filterRef.current?.value || 'relevance',
             StartIndex: 0,

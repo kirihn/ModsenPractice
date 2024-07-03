@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
-import foundReducer from './foundSlice';
-import pageReducer from './pageSlice'
+import foundReducer from './slices/foundSlice';
+import pageReducer from './slices/pageSlice'
 const rootReducer = combineReducers({
   found: foundReducer,
   page: pageReducer,

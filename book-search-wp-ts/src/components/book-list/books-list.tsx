@@ -1,24 +1,23 @@
 import React from 'react'
-import BookCard from '../book-card/book-Card'
+import { BookCard } from '../book-card/book-card'
+import { BookListProps } from './book-list-props.types'
 import './books-list.scss'
-import { GoogleBooksResponse } from '../../dto/books.dto'
 
-interface Props {
-    books?: GoogleBooksResponse
-}
-export default function BookList(props: Props) {
+export function BookList(props: BookListProps) {
+
+    const { items, totalItems } = props.books || { items: [], totalItems: 0 };
+
     return (
-        <>
-            {props.books ? (
-                <p className="booksCount">found {props.books.totalItems} results</p>
-            ) : (
-                <p className="booksCount">No results...</p>
-            )}
+        <main>
+            <p className="booksCount">
+                {totalItems !== undefined && totalItems > 1 ? "found " + totalItems + " results" : "No results"}
+            </p>
+
             <div className="booklistContainer">
-                {
-                    props.books?.items?.map((item, id) => <BookCard key={id} book={item}></BookCard>)
-                }
+                {items?.map((item, id) => (
+                    <BookCard key={id} book={item} />
+                ))}
             </div>
-        </>
+        </main>
     )
 }

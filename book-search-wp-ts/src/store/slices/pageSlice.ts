@@ -9,7 +9,7 @@ const initialState: FoundState = {
 };
 
 const PageSlice = createSlice({
-  name: 'example',
+  name: 'PageSlice',
   initialState,
   reducers: {
     SetPage: (state, action: PayloadAction<string>) => {

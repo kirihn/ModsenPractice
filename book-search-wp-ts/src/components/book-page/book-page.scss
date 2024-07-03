@@ -21,10 +21,14 @@
         .bookMap{
             margin-bottom: 40px;
             font-size: 18px;
+            cursor: pointer;
+            text-decoration: underline;
         }
+        
         .bookName{
             margin-bottom: 10px;
         }
+
         .authorName{
             text-decoration: underline;
             color: rgb(66, 66, 66);
@@ -32,6 +36,7 @@
             font-weight: normal;
             margin-bottom: 10px;
         }
+
         .descriptionContainer{
             border: 1px solid rgb(198, 198, 198);
             box-sizing: border-box;
@@ -46,7 +51,9 @@
 
 @media screen and (min-width: 1800px) {
     .bookPageContainer {
+
         .bookFace {
+
             img {
                 width: 50%;
             }
@@ -58,8 +65,10 @@
     .bookPageContainer {
         display: block;
         box-sizing: border-box;
+
         .bookFace {
             width: auto;
+
             img {
                 width: 60%;
             }
@@ -67,16 +76,20 @@
 
         .bookinfo {
             width: auto;
+
             .bookMap{
                 margin-bottom: 40px;
                 font-size: 16px;
             }
+
             .bookName{
                 font-size: 20px;
             }
+
             .authorName{
                 font-size: 16px;
             }
+            
             .descriptionContainer{
 
                 .description{
