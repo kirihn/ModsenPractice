@@ -28,7 +28,7 @@ export function BookPage() {
             <div className="bookPageContainer">
                 <div className="bookFace">
                 <img 
-                    src={imageLinks.thumbnail ? imageLinks.thumbnail : (imageLinks?.smallThumbnail ? imageLinks.smallThumbnail : "./img/EmptyAvatar.jpg")} 
+                    src={imageLinks?.thumbnail ? imageLinks.thumbnail : (imageLinks?.smallThumbnail ? imageLinks.smallThumbnail : "./img/EmptyAvatar.jpg")} 
                     alt="BookAvatar" 
                 />
                 </div>
