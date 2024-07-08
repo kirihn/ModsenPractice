@@ -3,20 +3,28 @@ import { useDispatch } from 'react-redux'
 import { GetResponseFromBookApi } from '../../utils/urlGenerator'
 import { SetSearchInfo } from '../../store/slices/foundSlice'
 import { SetPage } from '../../store/slices/pageSlice'
-import { HeaderProps } from './header-props.types'
+import { HeaderProps } from './types'
 import './header.scss'
+import { GoogleBooksResponse } from '../../types/books.type'
 
 export function Header(props: HeaderProps) {
     const dispatch = useDispatch()
 
+    const categories = [
+        'all',
+        'art',
+        'biography',
+        'computers',
+        'history',
+        'medical',
+        'poetry',
+    ]
     const searchRef = useRef<HTMLInputElement>(null)
     const categoryRef = useRef<HTMLSelectElement>(null)
     const filterRef = useRef<HTMLSelectElement>(null)
 
     const handleSearch = async () => {
-
         dispatch(SetPage('loading-page'))
-
 
         const searchParams = {
             Search: searchRef.current?.value || '%20',
@@ -27,11 +35,22 @@ export function Header(props: HeaderProps) {
 
         dispatch(SetSearchInfo(searchParams))
 
-        const response = await GetResponseFromBookApi(searchParams)
-        props.setBooks(response.data)
+        const response: GoogleBooksResponse = await GetResponseFromBookApi(
+            searchParams
+        )
+
+        if (response.items != undefined) {
+            props.setBooks(response.items)
+        } else {
+            props.setBooks([])
+        }
+        if (response.totalItems != undefined) {
+            props.setTotalItems(response.totalItems)
+        } else {
+            props.setTotalItems(0)
+        }
 
         dispatch(SetPage('book-list'))
-
     }
 
     const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
@@ -53,7 +72,7 @@ export function Header(props: HeaderProps) {
                             type="text"
                             placeholder="BookName..."
                             onKeyDown={handleKeyDown}
-                        ></input>
+                        />
                         <button onClick={handleSearch}>
                             <img src="./img/Search.png" alt="Search" />
                         </button>
@@ -63,13 +82,9 @@ export function Header(props: HeaderProps) {
                         <div className="selectItem">
                             <p>Categories</p>
                             <select ref={categoryRef}>
-                                <option value="all">all</option>
-                                <option value="art">art</option>
-                                <option value="biography">biography</option>
-                                <option value="computers">computers</option>
-                                <option value="history">history</option>
-                                <option value="medical">medical</option>
-                                <option value="poetry">poetry</option>
+                                {categories.map((item, key) => (
+                                    <option value={item} key={key}>{item}</option>
+                                ))}
                             </select>
                         </div>
                         <div className="selectItem">

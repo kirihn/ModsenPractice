@@ -4,20 +4,21 @@ import { Header } from './components/header/header'
 import { BookList } from './components/book-list/books-list'
 import { BookPage } from './components/book-page/book-page'
 import { LoagingPage } from './components/loading-page/loading-page'
-import { GoogleBooksResponse } from './types/books.type'
+import { Volume } from './types/books.type'
 import { RootState } from './store/store'
 
 import './app.scss'
 
 export function App() {
-    const [books, setBooks] = useState<GoogleBooksResponse>()
+    const [totalItems, setTotalItems] = useState<number>(0)
+    const [books, setBooks] = useState<Volume[]>()
 
     const currentPage = useSelector((state: RootState) => state.page.Page)
 
     const renderPage = () => {
         switch (currentPage) {
             case 'book-list':
-                return <BookList books={books} />;
+                return <BookList books={books} setBooks={setBooks} totalItems={totalItems}/>;
             case 'book-page':
                 return <BookPage />;
             case 'loading-page':
@@ -29,7 +30,7 @@ export function App() {
 
     return (
         <>
-            <Header setBooks={setBooks} />
+            <Header setBooks={setBooks} setTotalItems={setTotalItems} />
             {renderPage()}
         </>
     )

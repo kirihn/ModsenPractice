@@ -11,5 +11,22 @@
     max-width: 1400px;
     margin: auto;
     gap: 50px;
-    margin-bottom: 30px;
+}
+
+.moreButtonContainer{
+    display: flex;
+    justify-content: center;
+    padding: 30px 0 30px 0;
+
+    .moreButton{
+        padding: 15px 25px;
+        border-radius: 5px;
+        font-size: 15px;
+        background: rgb(240, 240, 240);
+
+    }
+
+    .moreButton:hover{
+        background: rgb(212, 212, 212);
+    }
 }

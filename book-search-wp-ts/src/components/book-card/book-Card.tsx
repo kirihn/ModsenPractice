@@ -1,9 +1,9 @@
 import React from 'react'
 import { useDispatch } from 'react-redux'
-import './book-card.scss'
 import { SetPage } from '../../store/slices/pageSlice'
-import { BookCardProps } from './book-card-props.types'
+import { BookCardProps } from './types'
 import { setCurrentBook } from '../../store/slices/currentBookSlice'
+import './book-card.scss'
 
 export function BookCard(props: BookCardProps) {
 

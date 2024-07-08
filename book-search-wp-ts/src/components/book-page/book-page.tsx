@@ -1,8 +1,7 @@
 import React from 'react'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { SetPage } from '../../store/slices/pageSlice'
 import './book-page.scss'
-import { useSelector } from 'react-redux'
 import { RootState } from '../../store/store'
 
 export function BookPage() {
