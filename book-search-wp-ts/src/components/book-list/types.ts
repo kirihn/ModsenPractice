@@ -1,4 +1,4 @@
-import { GoogleBooksResponse, Volume } from "../../types/books.type"
+import { Volume } from "../../types/books.type"
 
 export interface BookListProps {
     books?: Volume[]

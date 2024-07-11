@@ -1,15 +1,19 @@
-import React, { useRef } from 'react'
-import { useDispatch } from 'react-redux'
-import { GetResponseFromBookApi } from '../../utils/urlGenerator'
-import { SetSearchInfo } from '../../store/slices/foundSlice'
-import { SetPage } from '../../store/slices/pageSlice'
-import { HeaderProps } from './types'
-import './header.scss'
-import { GoogleBooksResponse } from '../../types/books.type'
+import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { GetResponseFromBookApi } from '../../utils/urlGenerator';
+import { SetSearchInfo } from '../../store/slices/foundSlice';
+import { SetPage } from '../../store/slices/pageSlice';
+import { HeaderProps } from './types';
+import { GoogleBooksResponse } from '../../types/books.type';
+import './header.scss';
 
 export function Header(props: HeaderProps) {
-    const dispatch = useDispatch()
+    const [search, setSearch] = useState('');
+    const [category, setCategory] = useState('');
+    const [filter, setFilter] = useState('');
 
+    const dispatch = useDispatch();
+    
     const categories = [
         'all',
         'art',
@@ -18,45 +22,53 @@ export function Header(props: HeaderProps) {
         'history',
         'medical',
         'poetry',
-    ]
-    const searchRef = useRef<HTMLInputElement>(null)
-    const categoryRef = useRef<HTMLSelectElement>(null)
-    const filterRef = useRef<HTMLSelectElement>(null)
+    ];
 
     const handleSearch = async () => {
-        dispatch(SetPage('loading-page'))
+        dispatch(SetPage('loading-page'));
 
         const searchParams = {
-            Search: searchRef.current?.value || '%20',
-            Categories: categoryRef.current?.value || 'all',
-            Filter: filterRef.current?.value || 'relevance',
+            Search: search || '%20',
+            Categories: category || 'all',
+            Filter: filter || 'relevance',
             StartIndex: 0,
-        }
+        };
 
-        dispatch(SetSearchInfo(searchParams))
+        dispatch(SetSearchInfo(searchParams));
 
-        const response: GoogleBooksResponse = await GetResponseFromBookApi(
-            searchParams
-        )
+        const response: GoogleBooksResponse =
+            await GetResponseFromBookApi(searchParams);
 
         if (response.items != undefined) {
-            props.setBooks(response.items)
+            props.setBooks(response.items);
         } else {
-            props.setBooks([])
+            props.setBooks([]);
         }
         if (response.totalItems != undefined) {
-            props.setTotalItems(response.totalItems)
+            props.setTotalItems(response.totalItems);
         } else {
-            props.setTotalItems(0)
+            props.setTotalItems(0);
         }
 
-        dispatch(SetPage('book-list'))
-    }
+        dispatch(SetPage('book-list'));
+    };
 
     const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
         if (event.key === 'Enter') {
-            handleSearch()
+            handleSearch();
         }
+    };
+
+    function ChangeCategory(event: React.ChangeEvent<HTMLSelectElement>) {
+        setCategory(event.target.value);
+    }
+
+    function ChangeFilter(event: React.ChangeEvent<HTMLSelectElement>) {
+        setFilter(event.target.value);
+    }
+
+    function ChangeSearch(event: React.ChangeEvent<HTMLInputElement>){
+        setSearch(event.target.value)
     }
 
     return (
@@ -67,11 +79,12 @@ export function Header(props: HeaderProps) {
                 <div className="filter">
                     <div className="searchBarContainer">
                         <input
-                            ref={searchRef}
                             className="searchBar"
                             type="text"
                             placeholder="BookName..."
                             onKeyDown={handleKeyDown}
+                            onChange={ChangeSearch}
+                            value={search}
                         />
                         <button onClick={handleSearch}>
                             <img src="./img/Search.png" alt="Search" />
@@ -81,15 +94,17 @@ export function Header(props: HeaderProps) {
                     <div className="selectsContainer">
                         <div className="selectItem">
                             <p>Categories</p>
-                            <select ref={categoryRef}>
+                            <select onChange={ChangeCategory}>
                                 {categories.map((item, key) => (
-                                    <option value={item} key={key}>{item}</option>
+                                    <option value={item} key={key}>
+                                        {item}
+                                    </option>
                                 ))}
                             </select>
                         </div>
                         <div className="selectItem">
                             <p>Sorting by</p>
-                            <select ref={filterRef}>
+                            <select onChange={ChangeFilter}>
                                 <option value="relevance">relevance</option>
                                 <option value="newest">newest</option>
                             </select>
@@ -98,5 +113,5 @@ export function Header(props: HeaderProps) {
                 </div>
             </div>
         </header>
-    )
+    );
 }

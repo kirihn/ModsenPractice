@@ -14,7 +14,7 @@ export function BookList(props: BookListProps) {
 
     const [startIndex, setstartindex] = useState<number>(30)
 
-    var { books, totalItems, setBooks } = props || { books: [], totalItems: 0 }
+    const { books, totalItems, setBooks } = props || { books: [], totalItems: 0 }
 
     const searchParamsObj = useSelector((state: RootState) => state.found)
 

@@ -3,7 +3,7 @@ import FoundState from "../types/searchInfo.dto";
 import { ApiKey, BaseUrl, BooksCount } from '../../config'
 
 export async function GetResponseFromBookApi(SearchParam: FoundState){
-    let response = await axios.get(
+    const response = await axios.get(
         BaseUrl,
         {
             params: {
