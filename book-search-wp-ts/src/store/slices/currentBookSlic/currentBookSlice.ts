@@ -1,9 +1,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { Volume } from "../../types/books.type";
+import { Volume } from "../../../types/books.type";
+import { CurrentBook } from './types';
 
-interface CurrentBook{
-    Book : Volume | null
-}
 const initialState: CurrentBook = {
     Book: null
 };

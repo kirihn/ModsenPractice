@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { GetResponseFromBookApi } from '../../utils/urlGenerator';
-import { SetSearchInfo } from '../../store/slices/foundSlice';
-import { SetPage } from '../../store/slices/pageSlice';
+import { SetSearchInfo } from '../../store/slices/foundSlic/foundSlice';
+import { SetPage } from '../../store/slices/pageSlic/pageSlice';
 import { HeaderProps } from './types';
 import { GoogleBooksResponse } from '../../types/books.type';
 import './header.scss';
@@ -13,7 +13,7 @@ export function Header(props: HeaderProps) {
     const [filter, setFilter] = useState('');
 
     const dispatch = useDispatch();
-    
+
     const categories = [
         'all',
         'art',
@@ -67,8 +67,8 @@ export function Header(props: HeaderProps) {
         setFilter(event.target.value);
     }
 
-    function ChangeSearch(event: React.ChangeEvent<HTMLInputElement>){
-        setSearch(event.target.value)
+    function ChangeSearch(event: React.ChangeEvent<HTMLInputElement>) {
+        setSearch(event.target.value);
     }
 
     return (

@@ -1,8 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-
-interface FoundState {
-    Page: string,
-}
+import { FoundState } from './types';
 
 const initialState: FoundState = {
     Page: 'book-list'

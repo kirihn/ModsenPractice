@@ -1,14 +1,14 @@
 import { initializeApp } from "firebase/app";
 import { getAuth, GoogleAuthProvider } from 'firebase/auth'
-
+import { FirebaseApiKey, FireBaseAppId, FireBaseAuthDomain, FireBaseMessagingSenderId, FireBaseProjectId, FireBaseStorageBucke } from '../../config'
 
 const firebaseConfig = {
-  apiKey: "AIzaSyDL_RcCU3Fs1La7QyFbiScNvvInrdr3wkw",
-  authDomain: "book-search-wp-ts-fb.firebaseapp.com",
-  projectId: "book-search-wp-ts-fb",
-  storageBucket: "book-search-wp-ts-fb.appspot.com",
-  messagingSenderId: "49218081773",
-  appId: "1:49218081773:web:e6ccbcd1ef216b17f7cde4"
+  apiKey: FirebaseApiKey,
+  authDomain: FireBaseAuthDomain,
+  projectId: FireBaseProjectId,
+  storageBucket: FireBaseStorageBucke,
+  messagingSenderId: FireBaseMessagingSenderId,
+  appId: FireBaseAppId
 };
 
 // Initialize Firebase

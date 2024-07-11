@@ -27,23 +27,12 @@ module.exports = {
         use: 'ts-loader',
         exclude: /node_modules/,
       },
-    //   {
-    //     test: /\.(png|jpe?g|gif|svg)$/i,
-    //     use: [
-    //         {
-    //             loader: 'file-loader',
-    //             options: {
-    //                 name: '[path][name].[ext]',
-    //             },
-    //         },
-    //     ],
-    // },
       {
         test: /\.scss$/,
         use: [
-          'style-loader', // вставляет стили в DOM
-          'css-loader', // позволяет импортировать CSS
-          'sass-loader', // компилирует Sass в CSS
+          'style-loader', 
+          'css-loader', 
+          'sass-loader', 
         ],
         exclude: /node_modules/,
       },
